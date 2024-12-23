@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParthPy - Python Compiler</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/theme/dracula.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/lint/lint.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/lint/lint.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prettier/2.8.8/standalone.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prettier/2.8.8/parser-babel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/edit/closebrackets.min.js"></script>
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <link rel="icon" href="{{ url_for('static', filename='icons/icon-192x192.png') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="static/style.css">
+    <style>
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="#">ParthPy</a>
+        <button class="toggle-btn" onclick="toggleTheme()">Toggle Dark Mode</button>
+    </div>
+
+    <div id="compiler">
+        <h1>Python Compiler</h1>
+        <div id="code-editor"></div>
+        <br>
+        <button onclick="runCode()">Run Code</button>
+        <button onclick="formatCode()">Align Code</button>
+        <div id="output" class="console-output"></div>
+    </div>
+
+    <footer>
+        <footer class="footer">
+            <div class="footer-content">
+                <a href="https://www.linkedin.com/in/sakshampathak" target="_blank" class="footer-link">
+                    <i class="fab fa-linkedin footer-icon"></i>
+                    <span class="footer-text">LinkedIn</span>
+                </a>
+                <a href="https://github.com/parthmax2" target="_blank" class="footer-link">
+                    <i class="fab fa-github footer-icon"></i>
+                    <span class="footer-text">GitHub</span>
+                </a>
+                <a href="https://www.instagram.com/parthmax_" target="_blank" class="footer-link">
+                    <i class="fab fa-instagram footer-icon"></i>
+                    <span class="footer-text">Instagram</span>
+                </a>
+            </div>
+
+            <p>Developed by <a href="https://www.instagram.com/parthmax_/" target="_blank" style="color:black; font-size: 18px; text-decoration:none; font-weight: normal;"><strong>Parthmax</strong></a>
+            </p>
+        </footer>
+        <script src="static/script.js"></script>
+        <script>
+            if ('serviceWorker' in navigator) {
+              navigator.serviceWorker.register('/static/service-worker.js')
+                .then(() => console.log('Service Worker Registered'))
+                .catch((error) => console.log('Service Worker Registration Failed:', error));
+            }
+        </script>
+</body>
+
+</html>
